@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AssemblyName>Aqua.TestPlatform.Web.Host</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>Aqua.TestPlatform.Web.Host</PackageId>
+    <UserSecretsId>Aqua-TestPlatform-56C2EF2F-ABD6-4EFC-AAF2-2E81C34E8FB1</UserSecretsId>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <LangVersion>7.2</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\swagger\ui\index.html" />
+    <Content Remove="angular\**" />
+    <Content Update="app.config">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+    <None Update="wwwroot\**\*">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+    <None Remove="angular\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aqua.TestPlatform.Web.Core\Aqua.TestPlatform.Web.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Abp.Castle.Log4Net" Version="5.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\swagger\ui\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Remove="angular\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="angular\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="angular\angular.json" />
+    <_ContentIncludedByDefault Remove="angular\ngsw-config.json" />
+    <_ContentIncludedByDefault Remove="angular\package.json" />
+    <_ContentIncludedByDefault Remove="angular\src\assets\appconfig.json" />
+    <_ContentIncludedByDefault Remove="angular\src\assets\appconfig.production.json" />
+    <_ContentIncludedByDefault Remove="angular\src\manifest.json" />
+    <_ContentIncludedByDefault Remove="angular\src\tsconfig.app.json" />
+    <_ContentIncludedByDefault Remove="angular\src\tsconfig.server.json" />
+    <_ContentIncludedByDefault Remove="angular\src\tsconfig.spec.json" />
+    <_ContentIncludedByDefault Remove="angular\tsconfig.json" />
+    <_ContentIncludedByDefault Remove="angular\tslint.json" />
+  </ItemGroup>
+</Project>

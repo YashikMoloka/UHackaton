@@ -1,0 +1,72 @@
+@import 'core/variables';
+@import "theme";
+* {
+  transition: all 1s;
+}
+
+.example-tree-progress-bar {
+  margin-left: 30px;
+}
+.app__header {
+
+}
+.app__map {
+  height: 100%;
+  position: fixed;
+  width: 100%;
+}
+.app__header_title {
+  color: black;
+  padding-left: 10px;
+}
+
+
+.app__header_toggle {
+  display: none;
+  @media (max-width: 1440px) {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 1.2em;
+  }
+}
+
+@mixin sidenav_padding {
+  padding-left: 15rem;
+  @media (max-width: 1440px) {
+    padding-left: 0;
+  }
+}
+
+.app__header {
+  @include sidenav_padding
+}
+
+.app__main {
+  padding-top: 56px;
+  @include sidenav_padding
+}
+.rotate-icon {
+  display: none;
+}
+
+.info-bubble-label {
+  width: 200px
+}
+
+.side-nav .collapsible .card.active>mdb-accordion-item-head {
+  background: none!important;
+}
+
+.app__legendbox {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.app__legendbox_minitext {
+  font-size: 0.7em;
+}
+.app__logo {
+  width: 100px;
+}
+.app__logo_text {
+  padding-left: 15px;
+}

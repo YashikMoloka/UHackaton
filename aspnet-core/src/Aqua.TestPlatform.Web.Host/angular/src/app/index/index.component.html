@@ -1,0 +1,83 @@
+<div class="admin">
+  <mdb-side-nav #sidenav class="fixed" [fixed]="true">
+    <li class="app__sidebar">
+      <ul class="collapsible collapsible-accordion">
+        <mdb-accordion [multiple]="false" aria-multiselectable="false">
+          <mdb-accordion-item (click)="filter('')">
+            <mdb-accordion-item-head mdbWavesEffect>
+              <a class="app__nav_title">Все</a>
+            </mdb-accordion-item-head>
+          </mdb-accordion-item>
+          <mdb-accordion-item (click)="filter('carbonOxide')">
+            <mdb-accordion-item-head mdbWavesEffect>
+              <a class="app__nav_title">Оксид углерода</a>
+            </mdb-accordion-item-head>
+          </mdb-accordion-item>
+          <mdb-accordion-item (click)="filter('nitrogenOxide')">
+            <mdb-accordion-item-head mdbWavesEffect>
+              <a class="app__nav_title">Оксид азота</a>
+            </mdb-accordion-item-head>
+          </mdb-accordion-item>
+          <mdb-accordion-item (click)="filter('nitrogenDioxide')">
+            <mdb-accordion-item-head mdbWavesEffect>
+              <a class="app__nav_title">Диоксид азота</a>
+            </mdb-accordion-item-head>
+          </mdb-accordion-item>
+          <mdb-accordion-item (click)="filter('sulphurDioxide')">
+            <mdb-accordion-item-head mdbWavesEffect>
+              <a class="app__nav_title">Диоксид серы</a>
+            </mdb-accordion-item-head>
+          </mdb-accordion-item>
+          <mdb-accordion-item (click)="filter('ozon')">
+            <mdb-accordion-item-head mdbWavesEffect>
+              <a class="app__nav_title">Озон</a>
+            </mdb-accordion-item-head>
+          </mdb-accordion-item>
+          <mdb-accordion-item (click)="filter('pm25')">
+            <mdb-accordion-item-head mdbWavesEffect>
+              <a class="app__nav_title">Частицы PM2.5</a>
+            </mdb-accordion-item-head>
+          </mdb-accordion-item>
+          <mdb-accordion-item (click)="filter('pm10')">
+            <mdb-accordion-item-head mdbWavesEffect>
+              <a class="app__nav_title">Частицы PM10</a>
+            </mdb-accordion-item-head>
+          </mdb-accordion-item>
+        </mdb-accordion>
+      </ul>
+    </li>
+    <hr>
+    <div class="app__legendbox">
+      <div>Легенда</div>
+      <div>
+        <div class="fa fa-circle" [ngStyle]="{color: getColors()[1]}"></div>
+        <div class="d-inline"> ПДК меньше 0.5</div>
+      </div>
+      <div>
+        <div class="fa fa-circle" [ngStyle]="{color: getColors()[2]}"></div>
+        <div class="d-inline"> ПДК меньше 1</div>
+      </div>
+      <div>
+        <div class="fa fa-circle" [ngStyle]="{color: getColors()[3]}"></div>
+        <div class="d-inline"> ПДК больше 1</div>
+      </div>
+      <div>
+        <div class="fa fa-circle" [ngStyle]="{color: getColors()[0]}"></div>
+        <div class="d-inline"> Измерения не проводились</div>
+      </div>
+      <div class="app__legendbox_minitext">ПДК - Предельно Допустимая Концентрация</div>
+    </div>
+    <div class="sidenav-bg mask-strong">
+    </div>
+  </mdb-side-nav>
+  <mdb-navbar SideClass="app__header navbar navbar-expand-lg fixed-top" [containerInside]="false">
+    <mdb-navbar-brand>
+      <a (click)="sidenav.toggle()" class="app__header_toggle button-collapse"><mdb-icon fas icon="bars"></mdb-icon></a>
+      <a class="navbar-brand app__header_title"><img src="assets/logo.png" class="app__logo" alt=""> <span class="app__logo_text">Активный фильтр: {{filterView()}}</span></a>
+    </mdb-navbar-brand>
+<!--    <button mat-flat-button (click)="create()">Create</button>-->
+  </mdb-navbar>
+  <div class="app__main">
+    <div class="app__map" #map></div>
+  </div>
+</div>
