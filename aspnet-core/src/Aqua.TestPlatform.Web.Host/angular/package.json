@@ -73,7 +73,7 @@
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.27",
     "ng-block-ui": "^2.1.8",
     "ng-recaptcha": "5.0.0",
